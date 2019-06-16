@@ -1,10 +1,16 @@
 #!/bin/bash
 ###################################################################################################
-# Installation Script for MPLSART web client
+# Initial Installation Script for MPLSART web client
 #
-# To use this, download this file and place in the root of your primary project
-# repository, then run ./installers/web
+# To use this, download this file and place in the root of your primary
+# projects root (eg. ~/workspaces/mplsart), then run ./installers/install-web.sh
 #
+# This will:
+#   * Create a dir called ./web which will be the workspace
+#   * Add a package.json for the workspace
+#   * Check out the master branch of repositories for the "packages" for web and armature (this could be manually done)
+#   * yarn installs all dependencies for both packages
+#   * Finally it links armature into web - this step is still required because yarn can't get version of git url
 ##################################################################################################
 echo "Greetings. Let's do stuff."
 
@@ -68,4 +74,4 @@ yarn link armature
 # Step 6: show they're linked... should only be one armature in output
 yarn list armature
 
-echo "Succes?? cd into web and run yarn run dev and in a separate console cd into armature and run yarn run dev-watch and make changes and see them magically update..."
+echo "Success?? cd into web and run yarn run dev and in a separate console cd into armature and run yarn run dev-watch and make changes and see them magically update..."
